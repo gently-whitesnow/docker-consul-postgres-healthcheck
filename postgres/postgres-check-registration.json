@@ -1,0 +1,6 @@
+{
+  "id": "postgres-id",
+  "name": "postgres",
+  "ttl": "20s",
+  "status": "passing"
+}

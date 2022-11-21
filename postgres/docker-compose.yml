@@ -1,0 +1,35 @@
+version: "3.9"
+services:
+  postgres:
+    container_name: postgres
+    build: .
+    image: custom-postgres
+    environment:
+      POSTGRES_DB: "db"
+      POSTGRES_USER: "db_user"
+      POSTGRES_PASSWORD: "-JaNdRTjWnZqXp2s5u8FgU4t7w!z%C*k"
+      PGDATA: "/var/lib/postgresql/data/pgdata"
+    volumes:
+      - ~/pgdata_itscoded:/var/lib/postgresql/data
+      - ./health-check.sh:/health-check.sh
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: [ "CMD-SHELL", "bash health-check.sh" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 1G
+    networks:
+      - server_network
+        
+networks:
+  server_network:
+    external: true
+   

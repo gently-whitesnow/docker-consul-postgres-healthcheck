@@ -1,0 +1,17 @@
+{
+  "bootstrap_expect": 1,
+  "advertise_addr": "127.0.0.1",
+  "node_name": "consul-postgres",
+  "server": true,
+  "bootstrap" : true,
+  "enable_script_checks": true,
+  "ui_config": {
+    "enabled" : true
+  },
+  "datacenter": "dc1",
+  "data_dir": "/consul/data",
+  "log_level":"INFO",
+  "addresses": {
+    "http" : "0.0.0.0"
+  }
+}

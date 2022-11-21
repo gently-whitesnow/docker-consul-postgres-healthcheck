@@ -1,0 +1,6 @@
+{
+  "ID": "postgres-service-id",
+  "Name": "postgres",
+  "Tags": ["db", "postgres"],
+  "Port": 5432
+}

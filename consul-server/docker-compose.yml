@@ -1,0 +1,26 @@
+version: '3.7'
+
+services:
+  consul-server:
+    image: hashicorp/consul:1.14.0
+    container_name: consul-server
+    restart: always
+    volumes:
+      - ./config/server.json:/consul/config/server.json:ro
+    ports:
+      - "8500:8500"
+      - "8301:8301/tcp"
+      - "8301:8301/udp"
+      - "8302:8302/tcp" 
+      - "8302:8302/udp" 
+      - "8300:8300/tcp"
+      - "8300:8300/udp"
+      - "8600:8600/tcp" 
+      - "8600:8600/udp" 
+    command: "agent"
+    networks:
+      - server_network
+
+networks:
+  server_network:
+    external: true
